@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>WhiteBlack</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/sign_up.css}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">    
+    </head>
+    <body>
+        <div id="box">
+            <div class="container px-5">
+                <form class="col-12 px-5 pt-3" method="post" th:action="@{/auth/save_user}" th:object="${user}">
+                    <div class="row">
+                        <h1 id="Head" class="col-12 text-center" th:text="#{form.sign.up}">Sign up</h1>
+                        <div class="container pb-3">
+                            <div class="row">
+                                <div class="container col-sm-6 pr-sm-4">
+                                	<div class="row">
+                                		<div class="container py-3 inputs">
+                                			<div class="row">
+	                                    		<i class="col-2 align-self-center px-0">F</i>
+												<label for="firstName"></label>
+												<input class="col-10" id="firstName" name="firstName"
+													   placeholder="Firstname"
+													   th:field="*{firstName}" type="text">
+											</div>
+	                                    </div>
+	                                    <div class="container py-3 inputs">
+                                			<div class="row">
+	                                    		<i class="col-2 align-self-center px-0">S</i>
+												<label for="lastName"></label>
+												<input id="lastName" class="col-10" name="lastName" placeholder="Surname"
+														   th:field="*{lastName}" type="text">
+											</div>
+	                                    </div>
+	                                    <div class="container py-3 inputs">
+                                			<div class="row">
+	                                    		<i class="fas fa-envelope col-2 align-self-center text-left px-0"></i>
+												<label for="email"></label>
+												<input class="col-10" id="email" name="email" placeholder="Email"
+													   th:field="*{email}" type="text">
+											</div>
+	                                    </div>
+                                	</div>
+                                </div>
+                                <div class="container col-sm-6 pl-sm-4">
+                                	<div class="row">
+                                		<div class="container py-3 inputs">
+                                			<div class="row">
+	                                    		<i class="fas fa-user col-2 align-self-center text-left"></i>
+												<label for="login"></label>
+												<input class="col-10" id="login" name="login" placeholder="Login"
+													   th:field="*{login}"
+													   type="text">
+											</div>
+	                                    </div>
+	                                    <div class="container py-3 inputs">
+                                			<div class="row">
+	                                    		<i class="fas fa-lock col-2 align-self-center text-left"></i>
+												<label for="password"></label>
+												<input class="col-10" id="password" name="password"
+													   placeholder="Password" th:field="*{password}" type="password">
+		                                	</div>
+	                                    </div>
+	                                    <div class="container py-3 inputs">
+                                			<div class="row">
+	                                    		<i class="fas fa-unlock col-2 align-self-center text-left"></i>
+												<label for="repassword"></label>
+												<input class="col-10" id="repassword" name="repassword"
+													   placeholder="Password confirm" type="password">
+		                                	</div>
+	                                    </div>
+                                	</div>
+                                </div>
+                                <div class="col-3"></div>
+	                            <button id="submit" class="col-6 btn mt-3">Submit</button>
+	                            <div class="col-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="col-12 mt-2 text-right p-0">
+                    <a id="new" th:href="@{/auth/sign-in}" class="text-right py-0">Already have an account?<br>Log in</a>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script th:src="@{/js/sign_up.js}"></script>
+    </body>
+</html>
