@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+  	<head>
+  		<title>WhiteBlack</title>
+    	<meta charset="UTF-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" th:href="@{/css/cinema_hall.css}" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  	</head>
+  	<body>
+	  	<div id="hall">
+			<div class="movie-container-custom m-0">
+				<p th:text="${Tickets.film.title}"></p>
+				<span hidden id="price" th:value="${Tickets.price}"></span>
+			</div>
+
+			<ul class="showcase m-0">
+				<li>
+			    	<div class="seat_showcase"></div>
+			    	<small th:text="#{hall.n.a}">N/A</small>
+			  	</li>
+			  	<li>
+			    	<div class="seat_showcase selected"></div>
+			   		<small th:text="#{hall.selected}">Selected</small>
+			  	</li>
+			  	<li>
+			    	<div class="seat_showcase occupied"></div>
+			    	<small th:text="#{hall.occupied}">Occupied</small>
+			  	</li>
+			</ul>
+
+			<div class="container-custom">
+			  	<div class="screen"></div>
+				<th:block th:each="index : ${#numbers.sequence(0, Tickets.seats.length() - 1)}">
+					<th:block th:if="${index} % 5 == 0" th:utext="'<div class=row-custom>'"></th:block>
+						<div>
+							<input th:checked="${Tickets.seats.getJSONObject(index).get('occupied')}"
+								   th:id="'seat' + ${Tickets.seats.getJSONObject(index).get('row') + '_' +
+										Tickets.seats.getJSONObject(index).get('seat')}" type="checkbox" hidden>
+							<label th:for="'seat' + ${Tickets.seats.getJSONObject(index).get('row') + '_' +
+								Tickets.seats.getJSONObject(index).get('seat')}" class="checkmark" ></label>
+							<div class="seat_row" th:value="${Tickets.seats.getJSONObject(index).get('row')}"></div>
+							<div class="seat_place" th:value="${Tickets.seats.getJSONObject(index).get('seat')}"></div>
+						</div>
+					<th:block th:if="${Tickets.seats.getJSONObject(index).get('seat') % 5 == 0 and index != 0}"
+							  th:utext="'</div>'"></th:block>
+				</th:block>
+			</div>
+
+			<div class="text">
+				<span th:text="#{hall.text.have.selected} ">You have selected </span>
+				<span id="count">0</span>
+				<span th:text=" #{hall.text.seats.price} "> seats for a price of </span>
+				<span id="total">0</span> ₴
+			</div>
+
+			<div class="row-custom">
+				<button id="prev-page" class="btn-custom">
+					<span>
+						<i class="fas fa-long-arrow-alt-left"></i>
+					</span>
+				</button>
+				<button id="next" class="btn-custom" sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_SELLER')">Next</button>
+				<a th:href="@{/auth/sign-in}" sec:authorize="isAnonymous()">
+					<button class="btn-custom" th:text="#{hall.next}">Next</button>
+				</a>
+			</div>
+		</div>
+
+        <div id="box" sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_SELLER')">
+			<form method="post" th:action="@{/tikets/buy}">
+				<div class="container">
+					<div id="result" class="p-2">
+						<div id="result_table" class="row text-center px-0">
+							<h3 class="col-4" th:text="#{hall.row}">Row</h3>
+							<h3 class="col-4" th:text="#{hall.seat}">Seat</h3>
+							<h3 class="col-4" th:text="#{hall.cost}">Cost</h3>
+						</div>
+						<hr id="hr1" class="my-0 mx-2">
+						<hr class="my-0 mx-2">
+						<div id="result_chosen" class="row text-center px-0">
+							<h5 class="col-8" th:text="${#temporals.format(Tickets.date, '__#{date.format}__')}"></h5>
+							<h5 id="total_next" class="col-4"></h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 mt-3 text-center">
+					<button class="btn" id="prev" th:text="#{hall.prev}">Prev</button>
+					<button class="btn" id="buy" th:text="#{hall.buy}" type="submit">Submit</button>
+				</div>
+			</form>
+        </div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<script th:src="@{/js/cinema_hall.js}"></script>
+		<script th:src="@{/js/buy_tickets.js}" sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_SELLER')"></script>
+
+  	</body>
+</html>
