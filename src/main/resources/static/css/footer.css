@@ -1,0 +1,15 @@
+.footer {
+    background-color: black;
+}
+
+.social, .footer, .social:hover {
+	color: white;
+}
+
+.film_title {
+	text-align: center;
+}
+
+.social:hover {
+	transform: scale(1.5);
+}

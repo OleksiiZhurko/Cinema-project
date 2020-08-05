@@ -1,0 +1,83 @@
+.navbar {
+    background-color: black;
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+.fa-bars {
+    font-size: 28px !important;
+}
+
+.left {
+    padding-left: 15rem !important;
+}
+
+.navbar-brand {
+    font-size: 25px !important;
+    transform: scale(1.2);
+    font-weight: bold;
+}
+
+#sign-in {
+	border-radius: 10px;
+	background-color: black;
+	color: white;
+	border: 2px solid white;
+}
+
+#sign-in:hover i, #sign-in:hover {
+	background-color: white;
+	color: black;
+}
+
+.fa-user-circle {
+    font-size: 32px;
+}
+
+.fa-bars, .fa-sign-in-alt {
+	color: white; 
+	border-color: none; 
+}
+
+.nav-link {
+	font-size: 18px;
+	color: white;
+}
+
+#tabs a {
+	background-color: black;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: white !important;
+    background-color: black !important;
+    border-color: black black white black !important;
+    border-bottom: 2px solid white !important;
+}
+
+.nav-tabs .nav-link {
+    border: none !important;
+    color: white;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color: black black white black !important;
+}
+
+.nav-tabs {
+    border-bottom: none !important;
+}
+
+.dropdown-item:hover {  
+    color: white !important;
+    background-color: black !important;
+}
+
+.dropdown-menu {
+    color: black !important;
+    background-color: white !important;
+}
+
+.dropdown-toggle:hover , .dropdown:hover {
+	color: white !important;
+}
