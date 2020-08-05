@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>WhiteBlack</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/sign_in.css}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">    
+    </head>
+    <body>
+        <div class="container">
+            <div id="box">
+                <div class="container">
+                    <form class="col-12 px-5 py-3" th:action="@{/auth/sign-in}" method="post">
+                        <div class="row">
+                            <h1 id="Head" class="col text-center" th:text="#{form.sign.in}">Sign in</h1>
+                            <div class="container py-3 inputs">
+                                <div class="row">
+                                    <i class="fas fa-user col align-self-center text-left"></i>
+                                    <label>
+                                        <input class="col" id="username" name="username"
+                                               th:placeholder="#{header.login}" type="text">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="container pt-3 inputs">
+                                <div class="row">
+                                    <i class="fas fa-lock col align-self-center text-left"></i>
+                                    <label>
+                                        <input class="col" id="password" name="password"
+                                               th:placeholder="#{form.password}" type="password">
+                                    </label>
+                                </div>
+                            </div>
+                            <a id="problem" href="#" class="text-right col-12 pb-3 pt-1 p-0">Need help?</a>
+                            <div class="col-3"></div>
+                            <button class="col-6 btn">Submit</button>
+                            <div class="col-3"></div>
+                        </div>
+                    </form>
+                    <div class="col-12 mt-2 text-right p-0">
+                        <a id="new" th:href="@{/auth/sign-up}" class="text-right">Create an account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
