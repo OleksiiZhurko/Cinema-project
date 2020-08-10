@@ -1,6 +1,9 @@
 package com.cinema.controller;
 
 import com.cinema.config.AppConfig;
+import com.cinema.service.FilmService;
+import com.cinema.service.MovieScheduleService;
+import com.cinema.service.TicketService;
 import com.cinema.service.impl.FilmServiceImpl;
 import com.cinema.service.impl.MovieScheduleServiceImpl;
 import com.cinema.service.impl.TicketServiceImpl;
@@ -33,22 +36,22 @@ public final class UserController {
     private final LocaleResolver localeResolver;
 
     /**
-     * FilmServiceImpl field is for performing some operation related to screened films in the WhiteBlack cinema
-     * @see FilmServiceImpl
+     * FilmService field is for performing some operation related to screened films in the WhiteBlack cinema
+     * @see FilmService
      */
-    private final FilmServiceImpl filmService;
+    private final FilmService filmService;
 
     /**
-     * MovieScheduleServiceImpl field is for performing some operation related to session schedule
-     * @see MovieScheduleServiceImpl
+     * MovieScheduleService field is for performing some operation related to session schedule
+     * @see MovieScheduleService
      */
-    private final MovieScheduleServiceImpl movieScheduleService;
+    private final MovieScheduleService movieScheduleService;
 
     /**
-     * TicketServiceImpl field is for performing some operation related to show purchased tickets
-     * @see TicketServiceImpl
+     * TicketService field is for performing some operation related to show purchased tickets
+     * @see TicketService
      */
-    private final TicketServiceImpl ticketService;
+    private final TicketService ticketService;
 
     /**
      * Current class constructor

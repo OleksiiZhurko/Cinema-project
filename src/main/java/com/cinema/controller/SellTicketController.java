@@ -7,11 +7,12 @@ import com.cinema.exceptions.MovieSessionNotFoundException;
 import com.cinema.exceptions.PriceChangeException;
 import com.cinema.exceptions.TicketAlreadyBoughtException;
 import com.cinema.exceptions.UserNotFoundException;
+import com.cinema.service.MovieScheduleService;
+import com.cinema.service.TicketService;
 import com.cinema.service.impl.MovieScheduleServiceImpl;
 import com.cinema.service.impl.TicketServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -40,16 +41,16 @@ public final class SellTicketController {
     private final LocaleResolver localeResolver;
 
     /**
-     * TicketServiceImpl field is for performing some operation related to buy some tickets
-     * @see TicketServiceImpl
+     * TicketService field is for performing some operation related to buy some tickets
+     * @see TicketService
      */
-    private final TicketServiceImpl ticketService;
+    private final TicketService ticketService;
 
     /**
-     * MovieScheduleServiceImpl field is for performing some operation related to session schedule
-     * @see MovieScheduleServiceImpl
+     * MovieScheduleService field is for performing some operation related to session schedule
+     * @see MovieScheduleService
      */
-    private final MovieScheduleServiceImpl movieScheduleService;
+    private final MovieScheduleService movieScheduleService;
 
     /**
      * Current class constructor

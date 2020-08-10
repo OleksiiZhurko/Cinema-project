@@ -1,6 +1,8 @@
 package com.cinema.controller;
 
 import com.cinema.config.AppConfig;
+import com.cinema.service.FilmService;
+import com.cinema.service.MovieScheduleService;
 import com.cinema.service.impl.FilmServiceImpl;
 import com.cinema.service.impl.MovieScheduleServiceImpl;
 import org.apache.log4j.Logger;
@@ -32,16 +34,16 @@ public final class DefaultController {
     private final LocaleResolver localeResolver;
 
     /**
-     * FilmServiceImpl field is for performing some operation related to screened films in the WhiteBlack cinema
-     * @see FilmServiceImpl
+     * FilmService field is for performing some operation related to screened films in the WhiteBlack cinema
+     * @see FilmService
      */
-    private final FilmServiceImpl filmService;
+    private final FilmService filmService;
 
     /**
-     * MovieScheduleServiceImpl field is for performing some operation related to session schedule
-     * @see MovieScheduleServiceImpl
+     * MovieScheduleService field is for performing some operation related to session schedule
+     * @see MovieScheduleService
      */
-    private final MovieScheduleServiceImpl movieScheduleService;
+    private final MovieScheduleService movieScheduleService;
 
     /**
      * Current class constructor

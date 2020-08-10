@@ -5,6 +5,7 @@ import com.cinema.entity.User;
 import com.cinema.exceptions.RoleNotFoundException;
 import com.cinema.exceptions.UserEmailAlreadyExistsException;
 import com.cinema.exceptions.UserLoginAlreadyExistsException;
+import com.cinema.service.UserService;
 import com.cinema.service.impl.UserServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +29,10 @@ public final class AuthController {
     private static final Logger log = Logger.getLogger(AuthController.class);
 
     /**
-     * UserServiceImpl class is for performing some operation related to authentication
-     * @see UserServiceImpl
+     * UserService class is for performing some operation related to authentication
+     * @see UserService
      */
-    private final UserServiceImpl userService;
+    private final UserService userService;
 
     /**
      * Current class constructor
